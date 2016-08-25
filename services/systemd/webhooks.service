@@ -1,0 +1,16 @@
+Unit]
+Description=gunicorn daemon
+After=network.target
+
+[Service]
+PIDFile=/run/gunicorn/webhooks
+User=root
+Group=root
+WorkingDirectory=/home/swayzetrain/WebHook
+ExecStart=/usr/local/bin/gunicorn --pid /run/gunicorn/webhooks hook:app --workers=3 -b 0.0.0.0:8080
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s TERM $MAINPID
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
