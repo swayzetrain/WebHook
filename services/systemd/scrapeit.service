@@ -7,7 +7,7 @@ PIDFile=/run/gunicorn/scrapeit
 User=root
 Group=root
 WorkingDirectory=/home/swayzetrain/scrapeit
-ExecStart=/usr/local/bin/gunicorn --pid /run/gunicorn/scrapeit scrapeit:app --workers=3 -b 0.0.0.0:80
+ExecStart=/usr/local/bin/gunicorn --pid /run/gunicorn/scrapeit scrapeit:app --workers=3 --user=root --log-file=/var/log/scrapeit.log --log-level=debug --access-logfile=/var/log/scrapeit_access.log  -b 0.0.0.0:80
 ExecReload=/bin/kill -s HUP $MAINPID
 ExecStop=/bin/kill -s TERM $MAINPID
 PrivateTmp=true

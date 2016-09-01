@@ -14,13 +14,13 @@
 # Author:       mle <geobi@makina-corpus.net>
 #
 APPNAME=ScrapeIt
-USER=swayzetrain
+USER=root
 PATH=/bin:/usr/bin:/sbin:/usr/sbin
 ACTIVATE=/home/swayzetrain/scrapeit
 APPMODULE=scrapeit:app
 DAEMON=gunicorn
 BIND=0.0.0.0:80
-PIDFILE=/var/run/gunicorn.pid
+PIDFILE=/var/run/scrapeit.pid
 LOGFILE=/var/log/scrapeit.log
 WORKERS=3
 
